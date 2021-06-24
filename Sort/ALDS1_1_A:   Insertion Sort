@@ -1,0 +1,87 @@
+C版本；
+#include<stdio.h>
+
+//按顺序输出相关数组 
+void trace(int N,int num[])
+{
+	int i ;
+	for(i = 0;i<N;i++)
+	{
+		if(i>0)printf(" ");	
+		printf("%d",num[i]);
+	}
+	printf("\n");
+}
+//实现插入排序
+void insertSort(int N,int num[])
+{
+	int v,i,j;//两个标志，一个数
+	for(i=1;i<N;i++)
+	{
+		v = num[i];
+		j = i-1;
+		while(j>-1&&num[j]>v)
+		{
+			num[j+1] = num[j]; 
+			j--;
+		}
+		num[j+1] = v;
+		trace(N,num);
+	} 
+}
+int main()
+{
+	//进行数据处理
+	//定义数据 
+	int N,num[100],i=0,j;
+	scanf("%d",&N);
+	j = N;
+//	for(i = 0;i<N;i++)
+//	scanf("%d",&num[i]);
+	while(N!=0){
+		scanf("%d",&num[i]);
+		i++;
+		N--;
+	}
+	trace(j,num);
+	insertSort(j,num);
+	return 0;
+}
+C++版本：
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a[105];
+    int n;
+    cin>>n;
+    for(int i=0;i<n;i++){
+        cin>>a[i];
+    }
+
+    cout<<a[0];
+    for(int i=1;i<n;i++){
+        cout<<" "<<a[i];
+    }
+    cout<<endl;
+
+    for(int i=1;i<n;i++){
+        int temp=a[i];
+        int j=i-1;
+        while (j>=0 && a[j]>temp){
+            a[j+1]=a[j];
+            j--;
+        }
+        a[j+1]=temp;
+
+        cout<<a[0];
+        for(int i=1;i<n;i++){
+            cout<<" "<<a[i];
+        }
+        cout<<endl;
+
+    }
+
+    return 0;
+}
+
