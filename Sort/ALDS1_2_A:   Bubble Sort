@@ -1,0 +1,94 @@
+方法一：
+#include<iostream>
+using namespace std;
+int bubbleSort(int N,int num[])
+{
+		int  aw = 0;
+        int flag = 1;//标志已经打乱
+        int i = 0;
+		while(flag)
+		{   
+			flag = 0;
+			for(int j = N-2;j>=i;j--)//注意i,j的范围 
+			{
+			if(num[j]>num[j+1]){
+				swap(num[j],num[j+1]);
+				aw++;
+			}
+			flag = 1;
+		    }
+		    i++;
+		}
+		return aw;
+}
+int main()
+{
+	//N代表总数，num代表数组，sw代表交换次数 
+	int N,num[100],sw;
+	int i ;
+	//输入数据
+	cin>> N;
+	for(i=0;i<N;i++)
+	{
+		cin>>num[i];
+	}
+	//冒泡排序
+	sw	= bubbleSort(N,num); 
+	int j;
+	for(j=0;j<N;j++)
+	{
+	if(j>0)cout<<" ";
+	cout<<num[j]; 
+	}
+	cout<<endl;
+	cout<<sw<<endl;
+}
+方法2：
+#include<iostream>
+using namespace std;
+int bubbleSort(int N,int num[])
+{
+	    int i;
+		int  aw = 0;
+        int flag = 1;//标志已经打乱
+       for(i=0;flag;i++)
+	   {
+			flag = 0;
+			int j ;
+			for(j=N-1;j>=i+1;j--)	//注意i,j的范围 
+				if(num[j-1]>num[j])
+				{
+					swap(num[j-1],num[j]);
+					aw++;
+					flag = 1;
+				}
+			}     	
+	   
+	   
+		return aw;
+}
+int main()
+{
+	//N代表总数，num代表数组，sw代表交换次数 
+	int N,num[100],sw;
+	int i ;
+	//输入数据
+	cin>> N;
+	for(i=0;i<N;i++)
+	{
+		cin>>num[i];
+	}
+	//冒泡排序
+	sw	= bubbleSort(N,num); 
+	int j;
+	for(j=0;j<N;j++)
+	{
+	if(j>0)cout<<" ";
+	cout<<num[j]; 
+	}
+	cout<<endl;
+	cout<<sw<<endl;
+}
+
+
+
