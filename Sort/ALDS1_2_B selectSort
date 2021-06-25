@@ -1,0 +1,49 @@
+C++版本：
+#include<iostream>
+using namespace std;
+//进行选择排序 
+int chooseSort(int N,int num[])
+{
+	int sw = 0;
+	//每回选择最小的 
+	int i ;
+	for(i=0;i<N;i++)
+	{
+		int j;
+	    int minj = i;
+		//计算最小的坐标并交换 
+		for(j=i;j<N;j++)
+		{
+			if(num[j]<num[minj])
+			minj = j;
+		} 
+		swap(num[minj],num[i]);
+		if(minj!=i)
+		sw++;
+	} 
+	return sw;
+	
+}
+
+int main()
+{
+	//定义数据 
+	int i;
+	int N,num[100],sw;
+	//输入数据
+	cin>>N;
+	for(i = 0;i<N;i++)
+	{
+		cin>>num[i];
+	}
+	//选择排序
+	sw = chooseSort(N,num);
+	//输出结果 
+	for(i=0;i<N;i++)
+	{
+		if(i)cout<<" ";
+		cout<<num[i];
+	}
+	cout<<endl;
+	cout<<sw<<endl;
+} 
